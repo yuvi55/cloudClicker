@@ -15,7 +15,6 @@ import {
   DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
-import loadingLogo from "@/public/loading.png"
 const text = "Please Login to Continue"
 export default function ProfileDropdown() {
   const { data: session, status }: any = useSession()
@@ -29,8 +28,7 @@ export default function ProfileDropdown() {
               <AvatarImage
                 src={
                   session?.user?.avatar_url ||
-                  session?.user?.image ||
-                  loadingLogo.src
+                  session?.user?.image
                 }
                 alt={session?.user?.name as string}
               />
@@ -46,8 +44,7 @@ export default function ProfileDropdown() {
               <AvatarImage
                 src={
                   session?.user?.avatar_url ||
-                  session?.user?.image ||
-                  loadingLogo.src
+                  session?.user?.image
                 }
                 alt={session?.user?.name as string}
               />
@@ -73,9 +70,6 @@ export default function ProfileDropdown() {
         {session?.user && (
           <DropdownMenuGroup>
             <Link href={`/people/${session?.user._id}`}>
-              <DropdownMenuItem>
-                Profile
-              </DropdownMenuItem>
             </Link>
           </DropdownMenuGroup>
         )}
@@ -84,15 +78,16 @@ export default function ProfileDropdown() {
 
         {session?.user ? (
           <DropdownMenuItem
-            onClick={() =>
-              signOut()
-            }
+          onClick={() =>
+            signOut({
+              callbackUrl: "/"
+            })
+          }
           >
             Log out
-            <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
           </DropdownMenuItem>
         ) : (
-          <Button onClick={() => signIn()}>
+          <Button onClick={() => signIn("google", {redirect:true , callbackUrl:"/dashboard"})}>
             <DropdownMenuItem>Log In</DropdownMenuItem>
           </Button>
         )}

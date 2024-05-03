@@ -24,11 +24,11 @@ const Button = (props: any) => {
 
     return (
         <>
-            <button onClick={incrementClick} className="bg-black h-16 w-24 text-white">
+            <button onClick={incrementClick} className="bg-black h-14 w-24 text-white">
                 {counter}
             </button>
             {counter > 0 && (
-                <button className="h-8 w-16 mx-16 bg-black text-white" onClick={reset}>
+                <button className="h-8 w-16 mx-16 bg-black text-white hover:bg-red-500" onClick={reset}>
                     Reset
                 </button>
             )}

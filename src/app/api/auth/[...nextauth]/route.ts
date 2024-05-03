@@ -1,8 +1,9 @@
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
+import { redirect } from "next/navigation";
 
-export const authOptions: NextAuthOptions = {
+const authOptions: NextAuthOptions = {
     // Configure one or more authentication providers
     secret: process.env.NEXTAUTH_SECRET,
     providers: [
@@ -21,9 +22,9 @@ export const authOptions: NextAuthOptions = {
     ],
     session:{
       strategy:'jwt'
-    },
+    }
     
   }
-  export const handler = NextAuth(authOptions) ; 
+  const handler = NextAuth(authOptions) ; 
   export {handler as GET , handler as POST} ; 
 
