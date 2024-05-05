@@ -7,25 +7,21 @@ const Button = (props:any) => {
     const [counter, setCounter] = useState(0);
     const buttonCollection = collection(db, 'buttonClicks');
 
-    // Fetch current counter from Firestore
     useEffect(() => {
         const docRef = doc(db, 'buttonClicks', props.id);
         const unsubscribe = onSnapshot(docRef, (doc) => {
             if (doc.exists()) {
                 setCounter(doc.data().clicks);
             } else {
-                // Initialize with a new document if it does not exist
                 setDoc(docRef, { clicks: 0 });
             }
         }, (error) => {
             console.log("Error getting document:", error);
         });
 
-        // Clean up the subscription on unmount
         return () => unsubscribe();
     }, [props.id]);
 
-    // Increment click handler
     const incrementClick = async () => {
         const newCount = counter + 1;
         setCounter(newCount);
@@ -33,7 +29,6 @@ const Button = (props:any) => {
         await setDoc(docRef, { clicks: newCount }, { merge: true });
     };
 
-    // Reset the counter and delete Firestore document
     const reset = async () => {
         const docRef = doc(buttonCollection, props.id);
         setCounter(0);
