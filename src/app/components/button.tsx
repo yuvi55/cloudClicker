@@ -1,26 +1,44 @@
 "use client"
 import React, { useEffect, useState } from 'react';
+import { CollectionReference, collection, doc, getDoc, setDoc , onSnapshot } from 'firebase/firestore';
+import db from '../../../helper/firebaseConfig';
 
-const Button = (props: any) => {
+const Button = (props:any) => {
     const [counter, setCounter] = useState(0);
+    const buttonCollection = collection(db, 'buttonClicks');
 
+    // Fetch current counter from Firestore
     useEffect(() => {
-        const storedCount = window.localStorage.getItem("count" + props.id);
-        if (storedCount) {
-            setCounter(Number(storedCount));
-        }
-    }, [props.id]); 
+        const docRef = doc(db, 'buttonClicks', props.id);
+        const unsubscribe = onSnapshot(docRef, (doc) => {
+            if (doc.exists()) {
+                setCounter(doc.data().clicks);
+            } else {
+                // Initialize with a new document if it does not exist
+                setDoc(docRef, { clicks: 0 });
+            }
+        }, (error) => {
+            console.log("Error getting document:", error);
+        });
 
-    function incrementClick() {
+        // Clean up the subscription on unmount
+        return () => unsubscribe();
+    }, [props.id]);
+
+    // Increment click handler
+    const incrementClick = async () => {
         const newCount = counter + 1;
         setCounter(newCount);
-        window.localStorage.setItem("count" + props.id, String(newCount));
-    }
+        const docRef = doc(buttonCollection, props.id);
+        await setDoc(docRef, { clicks: newCount }, { merge: true });
+    };
 
-    function reset() {
+    // Reset the counter and delete Firestore document
+    const reset = async () => {
+        const docRef = doc(buttonCollection, props.id);
         setCounter(0);
-        window.localStorage.removeItem("count" + props.id);
-    }
+        await setDoc(docRef, { clicks: 0 }, { merge: true });
+    };
 
     return (
         <>
@@ -34,6 +52,7 @@ const Button = (props: any) => {
             )}
         </>
     );
-}
+};
 
 export default Button;
+

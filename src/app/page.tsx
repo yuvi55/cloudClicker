@@ -7,16 +7,16 @@ export default async function Home() {
     return(
       <div className="flex flex-col my-10">
         <div className="my-10">
-          <Button id = {"1" + session?.user?.email}/>
+          <Button id = {"1"}/>
         </div>
         <div className="my-10">
-          <Button id = {"2" + session?.user?.email}/>
+          <Button id = {"2"}/>
         </div>
         <div className="my-10">
-          <Button id = {"3" + session?.user?.email}/>
+          <Button id = {"3"}/>
         </div>
         <div className="my-10">
-          <Button id = {"4" + session?.user?.email}/>
+          <Button id = {"4"}/>
         </div>
       </div>
   )

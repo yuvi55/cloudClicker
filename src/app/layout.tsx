@@ -4,6 +4,7 @@ import "./globals.css";
 import { getServerSession } from "next-auth";
 import SessionProvider from "./components/SessionProvider"
 import NavMenu from "./components/NavMenu";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,7 +19,7 @@ export default async function RootLayout({
 }>) {
   const session = await getServerSession() ; 
   return (
-    <html lang="en">
+      <html lang="en">
       <body className={inter.className}>
       <SessionProvider session = {session}>
         <main>
@@ -30,5 +31,6 @@ export default async function RootLayout({
         
       </body>
     </html>
+    
   );
 }

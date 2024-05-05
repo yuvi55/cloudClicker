@@ -30,7 +30,9 @@ function AuthButton() {
               Welcome, You are not logged in
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <Button onClick={() => signIn()} className="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md text-sm">
+              <Button onClick={() => signIn(
+                
+              )} className="text-white bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-md text-sm">
                 Sign In
               </Button>
             </NavigationMenuItem>
