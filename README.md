@@ -6,7 +6,7 @@ Cloud Clicker is a web application built with Next.js and React, styled with Tai
 
 Here's a walkthrough of implemented website:
 
-<img src='https://github.com/yuvi55/Crypto_website/blob/main/Kapture%202023-11-17%20at%2010.55.37.gif?raw=true' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://github.com/yuvi55/cloudClicker/blob/main/gif/CloudClick.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ## Technologies Used
 
