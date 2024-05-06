@@ -2,6 +2,10 @@
 
 Cloud Clicker is a web application built with Next.js and React, styled with Tailwind CSS, and integrated with Firebase Realtime Database and NextAuth for authentication. The application features a simple user interface with 4 buttons, each tracking the number of times it has been clicked. All clicks are updated and stored in real-time in Firebase and visualized through Recharts on a dashboard.
 
+## Deployed Version Link
+Deployed using **Vercel**
+https://cloud-clicker-zeta.vercel.app/
+
 ## Video Walkthrough
 
 Here's a walkthrough of implemented website:
