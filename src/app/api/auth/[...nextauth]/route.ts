@@ -1,7 +1,6 @@
 import { NextAuthOptions } from "next-auth";
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
-import { redirect } from "next/navigation";
 import db from "../../../../../helper/firebaseConfig";
 import {
   CollectionReference,

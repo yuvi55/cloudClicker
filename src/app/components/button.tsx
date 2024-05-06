@@ -17,8 +17,8 @@ const Button = (props: any) => {
   const { data: session } = useSession();
   const [counter, setCounter] = useState(0);
   const buttonCollection = collection(db, "buttonClicks");
-  const userCollection = collection(db, "Users");
   const userRef = doc(db, "Users", session?.user?.email || "");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const docRef = doc(db, "buttonClicks", props.id);
@@ -30,6 +30,7 @@ const Button = (props: any) => {
         } else {
           setDoc(docRef, { clicks: 0 });
         }
+        setLoading(false);
       },
       (error) => {
         console.log("Error getting document:", error);
@@ -38,6 +39,10 @@ const Button = (props: any) => {
 
     return () => unsubscribe();
   }, [props.id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   const incrementClick = async () => {
     console.log({ session });
