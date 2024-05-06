@@ -30,12 +30,10 @@ const page = async () => {
 
   return (
     <div>
-      <h1 className="text-6xl text-center mb-14">Bar chart</h1>
+      <h1 className="text-6xl text-center my-14">Bar chart</h1>
       <Recharts data={data} />
       <h1 className="text-6xl text-center my-14">Area chart</h1>
       <AreaCharts data={data} />
-      <h1 className="text-6xl text-center my-14">Pie chart</h1>
-      <PieCharts data={data} />
     </div>
   );
 };

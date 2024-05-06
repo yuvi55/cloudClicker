@@ -6,17 +6,24 @@ export default async function Home() {
   if (session) {
     return (
       <>
-        <div className="grid grid-cols-4 mx-48 mt-48">
-          <div className="my-10">
+        <h1 className="text-center mt-10 text-2xl font-bold text-slate-500">
+          Welcome to the Game
+        </h1>
+        <div className="flex flex-col mt-10 lg:grid grid-cols-4 lg:mx-48 lg:mt-20 ">
+          <div className="my-10 text-center">
+            <h1 className="my-5">Button 1</h1>
             <Button id={"1"} />
           </div>
-          <div className="my-10">
+          <div className="my-10 text-center ">
+            <h1 className="my-5">Button 2</h1>
             <Button id={"2"} />
           </div>
-          <div className="my-10">
+          <div className="my-10 text-center">
+            <h1 className="my-5">Button 3</h1>
             <Button id={"3"} />
           </div>
-          <div className="my-10">
+          <div className="my-10 text-center">
+            <h1 className="my-5">Button 4</h1>
             <Button id={"4"} />
           </div>
         </div>
