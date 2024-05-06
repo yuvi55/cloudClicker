@@ -1,6 +1,6 @@
 import Button from "./components/button";
 import { getServerSession } from "next-auth";
-
+import PersonalClicks from "./components/personalClicks";
 export default async function Home() {
   const session = await getServerSession();
   if (session) {
@@ -9,7 +9,8 @@ export default async function Home() {
         <h1 className="text-center mt-10 text-2xl font-bold text-slate-500">
           Welcome to the Game
         </h1>
-        <div className="flex flex-col mt-10 lg:grid grid-cols-4 lg:mx-48 lg:mt-20 ">
+        <PersonalClicks />
+        <div className="flex flex-col mt-10 lg:grid grid-cols-4 lg:mx-48 lg:mt-14 ">
           <div className="my-10 text-center">
             <h1 className="my-5">Button 1</h1>
             <Button id={"1"} />
