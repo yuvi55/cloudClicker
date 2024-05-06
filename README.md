@@ -70,5 +70,5 @@ Open your web browser and visit http://localhost:3000 to view the application.
 - **Real-Time Updates**: All clicks are updated and reflected in real-time across all clients.
 - **Dashboard**: Visualize the click data with Recharts.
 
-##License
+### License
 **MIT**
