@@ -1,36 +1,67 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Cloud Clicker
+
+Cloud Clicker is a web application built with Next.js and React, styled with Tailwind CSS, and integrated with Firebase Realtime Database and NextAuth for authentication. The application features a simple user interface with 4 buttons, each tracking the number of times it has been clicked. All clicks are updated and stored in real-time in Firebase and visualized through Recharts on a dashboard.
+
+## Technologies Used
+
+- **Next.js**: The React framework for production.
+- **ReactJS**: A JavaScript library for building user interfaces.
+- **Firebase Realtime Database**: A cloud-hosted database. Data is stored as JSON and synchronized in real-time to every connected client.
+- **NextAuth**: For authentication.
+- **Recharts**: A composable charting library built on React components.
+- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom designs.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+- Node.js (>= 10.13, except for v13)
+- npm (typically comes with Node.js)
+
+### Installation
+
+Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/yuvi55/cloud-clicker.git
+cd cloud-clicker
+
 ```
+### Install necessary dependencies
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Run the following command on your terminal
+npm i
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment Configuration
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Firebase Configuration
+Create a Firebase project in the Firebase console and add a new web application. You'll need to configure the Firebase Realtime Database and obtain your Firebase credentials which will be used in the application.
 
-## Learn More
+Create a .env.local file at the root of your project and add your Firebase configuration:
 
-To learn more about Next.js, take a look at the following resources:
+GOOGLE_CLIENT_ID = your_api_key
+GOOGLE_CLIENT_SECRET = your_api_key
+NEXTAUTH_SECRET = your_api_key
+NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+NEXT_PUBLIC_FIREBASE_DATABASE_URL=your_database_url
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Running the application locally
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Use the following command: npm run dev
 
-## Deploy on Vercel
+Open your web browser and visit http://localhost:3000 to view the application.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Features
+- **User Authentication**: Secure login with NextAuth.
+- **Click Counters**: Four interactive buttons, each tracking its own number of clicks in real-time.
+- **Real-Time Updates**: All clicks are updated and reflected in real-time across all clients.
+- **Dashboard**: Visualize the click data with Recharts.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+##License
+**MIT**
