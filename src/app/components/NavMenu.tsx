@@ -12,7 +12,7 @@ function NavigationBar() {
           <span className="text-lg text-gray-800 dark:text-gray-200">
             Hey {session?.user?.name || "there !"}
           </span>
-          <div className="flex justify-start lg:w-0 lg:flex-1 text-lg hover:text-red-500">
+          <div className="flex justify-start lg:w-0 lg:flex-1 text-lg">
             <Link href="/">Home</Link>
           </div>
           {session ? (
