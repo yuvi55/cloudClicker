@@ -31,7 +31,10 @@ cd cloud-clicker
 ### Install necessary dependencies
 
 - Run the following command on your terminal
+```bash
 npm i
+```
+
 
 ### Environment Configuration
 
@@ -39,6 +42,8 @@ Firebase Configuration
 Create a Firebase project in the Firebase console and add a new web application. You'll need to configure the Firebase Realtime Database and obtain your Firebase credentials which will be used in the application.
 
 Create a .env.local file at the root of your project and add your Firebase configuration:
+
+```bash
 
 GOOGLE_CLIENT_ID = your_api_key
 GOOGLE_CLIENT_SECRET = your_api_key
@@ -50,6 +55,8 @@ NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
 NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
 NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
 NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+
+```
 
 ### Running the application locally
 
