@@ -24,7 +24,7 @@ Before you begin, ensure you have the following installed:
 Clone the repository:
 
 ```bash
-git clone https://github.com/yuvi55/cloud-clicker.git
+git clone https://github.com/yuvi55/cloudClicker
 cd cloud-clicker
 
 ```
