@@ -69,13 +69,10 @@ const Button = (props: any) => {
         },
         body: JSON.stringify({
           buttonId: props.id,
-          timestamp: new Date(),
           user: session?.user?.name,
+          email: session?.user?.email,
         }),
       });
-
-      const data = await response.json();
-      console.log(data);
     } catch (e) {
       console.log(e);
     }
