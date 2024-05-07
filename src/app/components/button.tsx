@@ -60,10 +60,32 @@ const Button = (props: any) => {
     await setDoc(docRef, { clicks: 0 }, { merge: true });
   };
 
+  async function clickButton() {
+    incrementClick();
+    try {
+      const response = await fetch("/api/clickResponse/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          buttonId: props.id,
+          timestamp: new Date(),
+          user: session?.user?.name,
+        }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   return (
     <>
       <button
-        onClick={incrementClick}
+        onClick={clickButton}
         className="bg-slate-600 h-14 w-24 text-white"
       >
         {counter}
