@@ -45,7 +45,6 @@ const Button = (props: any) => {
   }
 
   const incrementClick = async () => {
-    console.log({ session });
     const newCount = counter + 1;
     setCounter(newCount);
     const docRef = doc(buttonCollection, props.id);
