@@ -70,7 +70,10 @@ NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 
 ### Running the application locally
 
-Use the following command: npm run dev
+Use the following command: 
+```bash
+npm run dev
+```
 
 Open your web browser and visit http://localhost:3000 to view the application.
 
