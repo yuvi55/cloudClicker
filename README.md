@@ -82,6 +82,7 @@ Open your web browser and visit http://localhost:3000 to view the application.
 - **Click Counters**: Four interactive buttons, each tracking its own number of clicks in real-time.
 - **Real-Time Updates**: All clicks are updated and reflected in real-time across all clients.
 - **Dashboard**: Visualize the click data with Recharts.
+- **Logging**: Run the app locally and check the app.logger file located on the root directory of the application for logs of which user clicked the button
 
 ### License
 **MIT**
