@@ -9,8 +9,11 @@ import {
 import db from "../../../helper/firebaseConfig";
 import Recharts from "../components/recharts";
 import AreaCharts from "../components/areaChart";
-import PieCharts from "../components/pieChart";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+
 const page = async () => {
+  const session = await getServerSession();
   async function fetchAllData() {
     const collectionRef = collection(db, "buttonClicks"); // Reference to the collection
     try {
@@ -28,14 +31,18 @@ const page = async () => {
 
   const data: Object = await fetchAllData();
 
-  return (
-    <div>
-      <h1 className="text-6xl text-center my-14">Bar chart</h1>
-      <Recharts data={data} />
-      <h1 className="text-6xl text-center my-14">Area chart</h1>
-      <AreaCharts data={data} />
-    </div>
-  );
+  if (session) {
+    return (
+      <div>
+        <h1 className="text-6xl text-center my-14">Bar chart</h1>
+        <Recharts data={data} />
+        <h1 className="text-6xl text-center my-14">Area chart</h1>
+        <AreaCharts data={data} />
+      </div>
+    );
+  } else {
+    redirect("/");
+  }
 };
 
 export default page;
